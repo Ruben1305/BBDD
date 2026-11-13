@@ -3,6 +3,7 @@
 --
 
 \restrict 8uQnc8nK1pO4Jm2U1UGDr4UXjc9EzL3E3CO294z7BOxymalnb6luASKOVtjoZX4
+\restrict BgtzWeRUx28yf1J6W3g6DSA8NyAnesdSkvACcGKNVKYk8AsxvyAMMc6ARDKhQWJ
 
 -- Dumped from database version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
 -- Dumped by pg_dump version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
@@ -57,6 +58,16 @@ CREATE TABLE public.llibre (
 
 
 ALTER TABLE public.llibre OWNER TO postgres;
+-- Name: parentesc; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.parentesc (
+    dni1 text,
+    dni2 text
+);
+
+
+ALTER TABLE public.parentesc OWNER TO postgres;
 
 --
 -- Name: pista; Type: TABLE; Schema: public; Owner: postgres
@@ -106,6 +117,10 @@ COPY public.exemplar (num, isbn_llibre) FROM stdin;
 --
 
 COPY public.llibre (isbn) FROM stdin;
+-- Data for Name: parentesc; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.parentesc (dni1, dni2) FROM stdin;
 \.
 
 
@@ -194,4 +209,24 @@ ALTER TABLE ONLY public.reserva
 --
 
 \unrestrict 8uQnc8nK1pO4Jm2U1UGDr4UXjc9EzL3E3CO294z7BOxymalnb6luASKOVtjoZX4
+-- Name: parentesc nodni1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.parentesc
+    ADD CONSTRAINT nodni1 FOREIGN KEY (dni1) REFERENCES public.empleado(dni) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- Name: parentesc nodni2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.parentesc
+    ADD CONSTRAINT nodni2 FOREIGN KEY (dni2) REFERENCES public.empleado(dni) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\unrestrict BgtzWeRUx28yf1J6W3g6DSA8NyAnesdSkvACcGKNVKYk8AsxvyAMMc6ARDKhQWJ
 
