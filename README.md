@@ -1,3 +1,4 @@
+git push -u origin main
 *** DESDE EL DIRECTORIO DE LA BASE DE DATOS ***
 
  su - postgres -c "pg_dump nombre_de_tu_bd" > respaldo.sql

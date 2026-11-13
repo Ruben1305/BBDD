@@ -2,6 +2,7 @@
 -- PostgreSQL database dump
 --
 
+\restrict 8uQnc8nK1pO4Jm2U1UGDr4UXjc9EzL3E3CO294z7BOxymalnb6luASKOVtjoZX4
 \restrict BgtzWeRUx28yf1J6W3g6DSA8NyAnesdSkvACcGKNVKYk8AsxvyAMMc6ARDKhQWJ
 
 -- Dumped from database version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
@@ -36,6 +37,27 @@ CREATE TABLE public.empleado (
 ALTER TABLE public.empleado OWNER TO postgres;
 
 --
+-- Name: exemplar; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.exemplar (
+    num integer NOT NULL,
+    isbn_llibre integer
+);
+
+
+ALTER TABLE public.exemplar OWNER TO postgres;
+
+--
+-- Name: llibre; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.llibre (
+    isbn integer NOT NULL
+);
+
+
+ALTER TABLE public.llibre OWNER TO postgres;
 -- Name: parentesc; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -83,6 +105,18 @@ COPY public.empleado (dni, nom, tlf) FROM stdin;
 
 
 --
+-- Data for Name: exemplar; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.exemplar (num, isbn_llibre) FROM stdin;
+\.
+
+
+--
+-- Data for Name: llibre; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.llibre (isbn) FROM stdin;
 -- Data for Name: parentesc; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -115,6 +149,22 @@ ALTER TABLE ONLY public.empleado
 
 
 --
+-- Name: exemplar exemplar_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.exemplar
+    ADD CONSTRAINT exemplar_pkey PRIMARY KEY (num);
+
+
+--
+-- Name: llibre llibre_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.llibre
+    ADD CONSTRAINT llibre_pkey PRIMARY KEY (isbn);
+
+
+--
 -- Name: pista pista_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -128,6 +178,14 @@ ALTER TABLE ONLY public.pista
 
 ALTER TABLE ONLY public.reserva
     ADD CONSTRAINT reserva_codi_pista_dni_empleado_key UNIQUE (codi_pista, dni_empleado);
+
+
+--
+-- Name: exemplar no_llibre; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.exemplar
+    ADD CONSTRAINT no_llibre FOREIGN KEY (isbn_llibre) REFERENCES public.llibre(isbn) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --
@@ -147,6 +205,10 @@ ALTER TABLE ONLY public.reserva
 
 
 --
+-- PostgreSQL database dump complete
+--
+
+\unrestrict 8uQnc8nK1pO4Jm2U1UGDr4UXjc9EzL3E3CO294z7BOxymalnb6luASKOVtjoZX4
 -- Name: parentesc nodni1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
