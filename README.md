@@ -1,6 +1,6 @@
-### BASE DE DATOS DE LA ***EMPRESA*** ###
+### BASE DE DATOS DE LA EMPRESA ###
 
-*** DESDE EL DIRECTORIO DE LA BASE DE DATOS ***
+## PASO A PASO PARA CREAR TODAS LAS TABLAS ##
 
  su - postgres -c "pg_dump nombre_de_tu_bd" > respaldo.sql
 
