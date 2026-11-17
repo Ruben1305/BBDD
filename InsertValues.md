@@ -32,12 +32,24 @@ VALUES(123),
 ### INSERTAR EN EXEMPLAR ###
 
 ```console
-
+INSERT INTO exemplar(num,isbn_llibre)
+VALUES(1,123),
+(2,321),
+(3,456),
+(4,654),
+(5,789),
+(6,987);
 ```
-### INSERTAR EN ###
+### INSERTAR EN PRESTEC (RELACIÓ) ###
 
 ```console
-
+INSERT INTO prestec(num_exemplar,dni_empleat,inici,final,durada)
+VALUES(1,'1111F','2026-10-12','2026-10-30','18 dias'),
+(2,'2222Z','2025-05-03','2025-06-10','37 dias'),
+(3,'3333A','2026-04-03','2026-04-10','7 dias'),
+(4,'6666T','2025-11-16','2025-11-20','4 dias'),
+(5,'4444E','2026-01-25','2026-01-30','5 dias'),
+(6,'5555W','2026-02-25','2026-03-10','15 dias');
 ```
 ### INSERTAR EN ###
 
