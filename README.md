@@ -174,15 +174,55 @@ ON DELETE SET NULL ON UPDATE CASCADE,
 UNIQUE(codi,nom)-- no repetim claus
 );
 ```
-### CREAR TABLA LLIBRE ###
-``` console
+### CREAR TABLA PRESTEC (ENTITAT) ###
 
+``` console
+CREATE TABLE prestecs(
+
+codi integer PRIMARY KEY,
+interes numeric(5,2),
+concedit boolean,
+data date,
+dni_empleat text,
+
+CONSTRAINT no_empleat FOREIGN KEY(dni_empleat)
+REFERENCES empleat(dni)
+ON DELETE SET NULL ON UPDATE CASCADE
+);
 ```
-### CREAR TABLA LLIBRE ###
-``` console
+### CREAR TABLA MATRIMONI ###
 
+``` console
+CREATE TABLE matrimoni(
+
+codi_prestecs integer PRIMARY KEY,
+
+CONSTRAINT no_prestecs FOREIGN KEY(codi_prestecs) 
+REFERENCES prestecs(codi)
+ON UPDATE CASCADE ON DELETE CASCADE
+);
 ```
-### CREAR TABLA LLIBRE ###
-``` console
+### CREAR TABLA VIVENDA ###
 
+``` console
+CREATE TABLE vivenda(
+
+codi_prestecs integer PRIMARY KEY,
+
+CONSTRAINT no_prestecs FOREIGN KEY(codi_prestecs) 
+REFERENCES prestecs(codi)
+ON UPDATE CASCADE ON DELETE CASCADE
+);
+```
+### CREAR TABLA ESTUDIS ###
+
+``` console
+CREATE TABLE estudis(
+
+codi_prestecs integer PRIMARY KEY,
+
+CONSTRAINT no_prestecs FOREIGN KEY(codi_prestecs) 
+REFERENCES prestecs(codi)
+ON UPDATE CASCADE ON DELETE CASCADE
+);
 ```
