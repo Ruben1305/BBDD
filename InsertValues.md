@@ -78,23 +78,72 @@ VALUES(1,'Cesped'),
 (4,'Tierra Batida'),
 (5,'Cemento');
 ```
-### INSERTAR EN ###
+### INSERTAR EN RESERVA ###
 
 ```console
-
+INSERT INTO reserva(codi_pista,dni_empleat,data,hora,durada)
+VALUES(1,'2222Z','2026-05-25','13:50','1H'),
+(2,'4444E','2026-07-08','10:00','30MIN'),
+(3,'6666T','2026-02-10','18:20','45MIN'),
+(4,'5555W','2026-12-29','09:00','2H'),
+(5,'1111F','2026-04-18','14:00','2H');
 ```
-### INSERTAR EN ###
+### INSERTAR EN GUARDERIA ###
 
 ```console
-
+INSERT INTO guarderia(codi, nom) VALUES
+(10, 'Escuela Karmaland'),
+(20, 'Guarderia Wigetta'),
+(30, 'Guarderia ClashRoyale');
 ```
-### INSERTAR EN ###
+### INSERTAR EN FILL ###
 
 ```console
-
+INSERT INTO fill(nom, naixement, dni_empleat)
+VALUES('Mini Vegetta', '2023-04-15', '2222Z'),
+('Willy Jr', '2021-01-12', '3333A'),
+('Rubius Jr', '2024-07-20', '4444E'),
+('Josep Jr', '2022-03-10', '1111F');
 ```
-### INSERTAR EN ###
+### INSERTAR EN INSCRIPCIÓ ###
 
 ```console
-
+INSERT INTO inscripcio(codi, nom, data) VALUES
+(10, 'Mini Vegetta', '2025-09-01'),
+(20, 'Willy Jr', '2023-09-01'),
+(30, 'Rubius Jr', '2026-09-01'),
+(10, 'Josep Jr', '2024-09-01');
 ```
+### INSERTAR EN PRESTECS ###
+
+```console
+INSERT INTO prestecs(codi, interes, concedit, data, dni_empleat) VALUES
+(501, 3.50, TRUE, '2025-05-10', '1111F'),
+(502, 2.75, TRUE, '2025-08-22', '3333A'),
+(503, 4.10, FALSE, '2026-01-15', '5555W'),
+(504, 1.95, TRUE, '2026-03-30', '6666T'),
+(505, 3.20, TRUE, '2026-06-12', '4444E'),
+(506, 2.50, TRUE, '2026-09-01', '2222Z');
+```
+### INSERTAR EN MATRIMONI ###
+
+```console
+INSERT INTO matrimoni(codi_prestecs) VALUES
+(502),
+(505);
+```
+### INSERTAR EN VIVENDA ###
+
+```console
+INSERT INTO vivenda(codi_prestecs) VALUES
+(501),
+(506);
+```
+### INSERTAR EN ESTUDIS ###
+
+```console
+INSERT INTO estudis(codi_prestecs) VALUES
+(503),
+(504);
+```
+
