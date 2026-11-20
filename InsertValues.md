@@ -51,10 +51,15 @@ VALUES(1,'1111F','2026-10-12','2026-10-30','18 dias'),
 (5,'4444E','2026-01-25','2026-01-30','5 dias'),
 (6,'5555W','2026-02-25','2026-03-10','15 dias');
 ```
-### INSERTAR EN ###
+### INSERTAR EN COTXE ###
 
 ```console
-
+INSERT INTO cotxe(mat,model,marca)
+VALUES('1234T','Leon','Seat'),
+('9876G','Raval','Cupra'),
+('7823E','Dolphine','ByD'),
+('3674U','California','Ferrari'),
+('4158M','Ibiza','Seat');
 ```
 ### INSERTAR EN ###
 
