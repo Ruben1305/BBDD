@@ -68,10 +68,15 @@ INSERT INTO comercial(empleat_dni)
 VALUES('1111F'),
 ('5555W');
 ```
-### INSERTAR EN ###
+### INSERTAR EN PISTA ###
 
 ```console
-
+INSERT INTO pista(codi,superficie)
+VALUES(1,'Cesped'),
+(2,'Tierra'),
+(3,'Arena'),
+(4,'Tierra Batida'),
+(5,'Cemento');
 ```
 ### INSERTAR EN ###
 
