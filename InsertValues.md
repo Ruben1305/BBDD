@@ -61,10 +61,12 @@ VALUES('1234T','Leon','Seat'),
 ('3674U','California','Ferrari'),
 ('4158M','Ibiza','Seat');
 ```
-### INSERTAR EN ###
+### INSERTAR EN COMERCIAL ###
 
 ```console
-
+INSERT INTO comercial(empleat_dni)
+VALUES('1111F'),
+('5555W');
 ```
 ### INSERTAR EN ###
 
